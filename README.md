@@ -1,15 +1,17 @@
 # V2XScenes
+
 [ICCV2025] V2XScenes: A Multiple Challenging Traffic Conditions Dataset for Large-Range Vehicle-Infrastructure Collaborative Perception
 
 This repo is a real-world **multiple challenging condition dataset** under large-range road section for **multi-modal V2X cooperative perception**.
 
-[Paper](https://openaccess.thecvf.com/content/ICCV2025/papers/Wang_V2XScenes_A_Multiple_Challenging_Traffic_Conditions_Dataset_for_Large-Range_Vehicle-Infrastructure_ICCV_2025_paper.pdf) | [Project page](https://advrc-wangbw.github.io/V2XScenes/) 
+[Paper](https://openaccess.thecvf.com/content/ICCV2025/papers/Wang_V2XScenes_A_Multiple_Challenging_Traffic_Conditions_Dataset_for_Large-Range_Vehicle-Infrastructure_ICCV_2025_paper.pdf) | [Project page](https://advrc-wangbw.github.io/V2XScenes/)
 
 ![V2XScenes](opencood/images/v2xscenes_poster.png)
 
 ## Data prepare
 
 Create a `dataset` folder under `V2XScenes` and put the data there. Make the naming and structure consistent with the following:
+
 ```
 dataset/v2xscenes/
 ├── calibration/                  # 传感器标定 | Sensor calibration 
@@ -66,7 +68,9 @@ python dataset/v2xscenes/tools/create_v2x_links.py --target /custom/target/path
 ```
 
 ## Installation
+
 ### Step 1: Basic Installation
+
 ```bash
 # Create conda environment
 conda env create -f environment.yml
@@ -78,11 +82,12 @@ conda activate v2xscenes
 python setup.py develop
 ```
 
-
 ### Step 2: Install Spconv (1.2.1 or 2.x)
+
 We use spconv 1.2.1 or spconv 2.x to generate voxel features. spconv 2.x has much convenient installation, but our checkpoints are stored in spconv 1.2.1 and they are not compatible.
 
 To install **spconv 2.x**, check the [table](https://github.com/traveller59/spconv#spconv-spatially-sparse-convolution-library) to run the installation command. For example we have cudatoolkit 11.6, then we should run
+
 ```bash
 pip install spconv-cu116 # match your cudatoolkit version
 ```
@@ -90,10 +95,10 @@ pip install spconv-cu116 # match your cudatoolkit version
 To install **spconv 1.2.1**, please follow the guide in https://github.com/traveller59/spconv/tree/v1.2.1.
 You can also get a detailed installation guide in [CoAlign Installation Doc](https://udtkdfu8mk.feishu.cn/docx/LlMpdu3pNoCS94xxhjMcOWIynie#doxcn5rISC6NcfXIUnWFnXhTEzd).
 
-
 ### Step 3: Bbx IoU cuda version compile
+
 Install bbx nms calculation cuda version
-  
+
 ```bash
 python opencood/utils/setup.py build_ext --inplace
 ```
@@ -101,10 +106,13 @@ python opencood/utils/setup.py build_ext --inplace
 ## Basic Train / Test Command
 
 ### Train the model
+
 Example using the v2xsences_where2comm_all.yaml configuration file:
+
 ```
 CUDA_VISIBLE_DEVICES=0 python opencood/tools/train_v2xscenes.py -y ./opencood/hypes_yaml/v2xscenes/v2xsences_where2comm.yaml
 ```
+
 Visualization Debugging:
 To visualize training results and verify label-data alignment, enable the plotting option:
 
@@ -124,6 +132,7 @@ Change `PLOT = False` to `PLOT = True` and the illustrations are shown as follow
 </table>
 
 ### Model Inference
+
 ```
 CUDA_VISIBLE_DEVICES=0 python opencood/tools/train.py \
     --hypes_yaml ${CONFIG_FILE} \
@@ -131,7 +140,12 @@ CUDA_VISIBLE_DEVICES=0 python opencood/tools/train.py \
     --half]
 ```
 
+## Acknowledgements
+- [Opencood](https://github.com/DerrickXuNu/OpenCOOD)
+- [HEAL](https://github.com/yifanlu0227/HEAL)
+
 ## Citation
+
 ```
 @inproceedings{wang2025v2xscenes,
   title={V2XScenes: A Multiple Challenging Traffic Conditions Dataset for Large-Range Vehicle-Infrastructure Collaborative Perception},
