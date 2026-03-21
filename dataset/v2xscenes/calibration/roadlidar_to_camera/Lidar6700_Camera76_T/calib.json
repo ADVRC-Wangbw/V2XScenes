@@ -1,0 +1,48 @@
+{
+  "camera": {
+    "camera_model": "plumb_bob",
+    "distortion_coeffs": [
+      0.07822369216749371,
+      -0.17015465678896086,
+      -0.010350807194095773,
+      0.0017983450498047816,
+      0.1775934770398297
+    ],
+    "intrinsics": [
+      2599.5257557170185,
+      2815.7928784105916,
+      1300.8712587162818,
+      653.0861933116511
+    ]
+  },
+  "meta": {
+    "bag_names": [
+      "Lidar6700_camera76.bag"
+    ],
+    "camera_info_topic": "",
+    "data_path": "/home/sjtu_smartcar/Desktop/ROS-Bag-Tools/STAR_Dataset_Bags/Lidar6700_camera76_T/",
+    "image_topic": "/camera/image_raw",
+    "intensity_channel": "intensity",
+    "points_topic": "/lidar/pointcloud"
+  },
+  "results": {
+    "T_lidar_camera": [
+      2.6902940504649804,
+      5.576684853146793,
+      4.201263318332952,
+      -0.6136328844326093,
+      -0.48867948404993555,
+      0.2713939859082321,
+      0.5576668803366823
+    ],
+    "init_T_lidar_camera": [
+      2.6884398460388184,
+      5.558403491973877,
+      4.1640625,
+      -0.616341372955545,
+      -0.48809443990956264,
+      0.26923980609992026,
+      0.556234696933181
+    ]
+  }
+}
