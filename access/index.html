@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,20 +7,20 @@
       name="description"
       content="V2XScenes dataset access request form for academic and research use."
     />
-    <title>V2XScenes 数据集访问申请</title>
+    <title>V2XScenes Dataset Access Request</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="page-shell">
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow">Dataset Access Request</p>
-        <h1 id="page-title">V2XScenes 数据集访问申请</h1>
+        <h1 id="page-title">V2XScenes Dataset Access Request</h1>
         <p class="lead">
-          请填写以下信息以申请 V2XScenes 数据集下载代码。申请提交后，维护者会进行人工审核；审核通过后，下载代码链接将发送到你填写的邮箱。
+          Please complete this form to request access to the V2XScenes dataset download code. Each request will be reviewed manually. If approved, the download code link will be sent to the email address you provide.
         </p>
         <div class="notice">
-          <strong>使用说明</strong>
-          <span>请使用真实姓名、机构邮箱和明确的研究用途。数据集仅供被批准的研究、教学或非商业评测用途使用。</span>
+          <strong>Access Notice</strong>
+          <span>Please use your real name, institutional email address, and a clear research purpose. The dataset is intended only for approved research, teaching, or non-commercial evaluation use.</span>
         </div>
       </section>
 
@@ -36,19 +36,19 @@
           <input type="text" name="website" class="hidden-field" tabindex="-1" autocomplete="off" />
 
           <label>
-            <span>姓名 / Name</span>
+            <span>Name</span>
             <input
               type="text"
               name="name"
               autocomplete="name"
               required
               maxlength="100"
-              placeholder="例如：张三"
+              placeholder="Your full name"
             />
           </label>
 
           <label>
-            <span>邮箱 / Email</span>
+            <span>Email</span>
             <input
               type="email"
               name="email"
@@ -60,36 +60,36 @@
           </label>
 
           <label>
-            <span>学校或工作单位 / Affiliation</span>
+            <span>Affiliation</span>
             <input
               type="text"
               name="affiliation"
               autocomplete="organization"
               required
               maxlength="180"
-              placeholder="例如：XX大学 / XX实验室 / XX公司"
+              placeholder="University, lab, institute, or company"
             />
           </label>
 
           <label>
-            <span>数据集用途 / Intended Use</span>
+            <span>Intended Use</span>
             <textarea
               name="purpose"
               required
               minlength="20"
               maxlength="2000"
               rows="7"
-              placeholder="请简要说明研究方向、项目主题、是否会用于论文或课程，以及是否涉及商业用途。"
+              placeholder="Briefly describe your research direction, project topic, whether the dataset will be used for a paper or course, and whether any commercial use is involved."
             ></textarea>
           </label>
 
           <label class="checkbox-row">
             <input type="checkbox" name="agreement" value="yes" required />
-            <span>我确认所填信息真实，并承诺仅在获批用途范围内使用 V2XScenes 数据集。</span>
+            <span>I confirm that the information provided is accurate and agree to use the V2XScenes dataset only for the approved purpose.</span>
           </label>
 
           <div class="actions">
-            <button id="submit-button" type="submit">提交申请</button>
+            <button id="submit-button" type="submit">Submit Request</button>
             <p id="form-status" class="status" role="status" aria-live="polite"></p>
           </div>
         </form>

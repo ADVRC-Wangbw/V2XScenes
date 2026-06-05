@@ -15,7 +15,7 @@
 
   if (!config.endpoint || config.endpoint.includes("PASTE_GOOGLE_APPS_SCRIPT")) {
     button.disabled = true;
-    setStatus("表单尚未配置提交地址，请联系维护者。", "error");
+    setStatus("The request form is not configured yet. Please contact the maintainer.", "error");
     return;
   }
 
@@ -32,15 +32,15 @@
 
     if (form.elements.website.value) {
       event.preventDefault();
-      setStatus("提交失败，请刷新页面后重试。", "error");
+      setStatus("Submission failed. Please refresh the page and try again.", "error");
       return;
     }
 
     submittedAtClient.value = new Date().toISOString();
     hasSubmitted = true;
     button.disabled = true;
-    button.textContent = "提交中...";
-    setStatus("正在提交申请，请稍候。");
+    button.textContent = "Submitting...";
+    setStatus("Submitting your request. Please wait.");
   });
 
   frame.addEventListener("load", function () {
@@ -49,7 +49,7 @@
     hasSubmitted = false;
     form.reset();
     button.disabled = false;
-    button.textContent = "提交申请";
-    setStatus("申请已提交。审核通过后，下载代码链接会发送到你的邮箱。", "success");
+    button.textContent = "Submit Request";
+    setStatus("Your request has been submitted. If approved, the download code link will be sent to your email.", "success");
   });
 })();
