@@ -13,6 +13,47 @@
     status.className = type ? `status ${type}` : "status";
   }
 
+  function getValidationMessage(field) {
+    if (field.validity.valueMissing) {
+      if (field.name === "agreement") {
+        return "Please confirm the dataset use agreement.";
+      }
+
+      return "Please fill out this field.";
+    }
+
+    if (field.validity.typeMismatch && field.type === "email") {
+      return "Please enter a valid email address.";
+    }
+
+    if (field.validity.tooShort) {
+      return `Please enter at least ${field.minLength} characters.`;
+    }
+
+    return "";
+  }
+
+  function updateValidationMessage(field) {
+    field.setCustomValidity("");
+    field.setCustomValidity(getValidationMessage(field));
+  }
+
+  Array.from(form.elements).forEach(function (field) {
+    if (!field.willValidate) return;
+
+    field.addEventListener("invalid", function () {
+      updateValidationMessage(field);
+    });
+
+    field.addEventListener("input", function () {
+      updateValidationMessage(field);
+    });
+
+    field.addEventListener("change", function () {
+      updateValidationMessage(field);
+    });
+  });
+
   if (!config.endpoint || config.endpoint.includes("PASTE_GOOGLE_APPS_SCRIPT")) {
     button.disabled = true;
     setStatus("The request form is not configured yet. Please contact the maintainer.", "error");
@@ -24,9 +65,14 @@
   form.addEventListener("submit", function (event) {
     setStatus("", "");
 
-    if (!form.checkValidity()) {
+    Array.from(form.elements).forEach(function (field) {
+      if (field.willValidate) {
+        updateValidationMessage(field);
+      }
+    });
+
+    if (!form.reportValidity()) {
       event.preventDefault();
-      form.reportValidity();
       return;
     }
 
