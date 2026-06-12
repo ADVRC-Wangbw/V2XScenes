@@ -82,13 +82,8 @@ h1 {
 }
 
 .notice .notice-warning {
-  width: fit-content;
-  max-width: 100%;
-  padding: 6px 8px;
-  border-radius: 6px;
-  background: #fff1f0;
-  color: #7a271a;
-  font-weight: 650;
+  color: var(--accent);
+  font-weight: 800;
 }
 
 .form-panel {
