@@ -81,6 +81,28 @@ h1 {
   line-height: 1.65;
 }
 
+.warning-notice {
+  display: grid;
+  gap: 8px;
+  padding: 18px 20px;
+  border: 1px solid rgba(180, 35, 24, 0.28);
+  border-left: 5px solid var(--error);
+  border-radius: 8px;
+  background: #fff1f0;
+  color: var(--error);
+  box-shadow: 0 10px 32px rgba(180, 35, 24, 0.08);
+}
+
+.warning-notice strong {
+  color: var(--error);
+}
+
+.warning-notice span {
+  color: #7a271a;
+  line-height: 1.65;
+  font-weight: 650;
+}
+
 .form-panel {
   background: var(--panel);
   border: 1px solid var(--line);
